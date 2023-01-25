@@ -31,6 +31,6 @@ io.on("connection", function(socket){
 	  });
 });
 
-server.listen(5000 , () => {
-	console.log(`server listening on port 5000`)
+server.listen(10000 , () => {
+	console.log(`server listening on port 10000`)
 });
