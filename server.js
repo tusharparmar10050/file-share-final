@@ -9,7 +9,6 @@ const io = require("socket.io")(server);
 app.use(express.static(path.join(__dirname+"/public")));
 
 io.on("connection", function(socket){
-	console.log("connection started");
 	socket.on("sender-join",function(data){
 		socket.join(data.uid);
 	});
@@ -26,9 +25,6 @@ io.on("connection", function(socket){
 	socket.on("file-raw",function(data){
 		socket.in(data.uid).emit("fs-share", data.buffer);
 	})
-	socket.on("connect_error", (err) => {
-		console.log(err.message); 
-	  });
 });
 
 server.listen(10000 , () => {
